@@ -1,0 +1,21 @@
+
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: server
+    environment:
+      TZ: Asia/Tokyo
+      DB_USERNAME: root
+      DB_PASSWORD: password
+      DB_HOSTNAME: mysql
+      DB_PORT: 3306
+      DB_DBNAME: todolist
+    tty: true
+    volumes:
+      - ./:/app/ToDoList
+    ports:
+      - "8000:8000"
+    
